@@ -67,7 +67,26 @@ public class deleteNodeSLL {
                 temp=temp.next;
             }
             return head;
+        }
+        static Node deleteKElement(Node head, int ele){
+            if(head==null){
+                return head;
+            }
+            if(head.data==ele){
+                return head.next;
+            }
+            Node temp=head;
+            Node prev=null;
 
+            while(temp!=null){
+                if(temp.data==ele){
+                    prev.next=prev.next.next;
+                    break;
+                }
+                prev=temp;
+                temp=temp.next;
+            }
+            return head;
         }
 
         static Node deleteNode(Node head,Node value){
