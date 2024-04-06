@@ -55,6 +55,20 @@ public class deleteNodeDLL {
         return head;
 
     }
+    static DLL deleteTailNode(DLL head) {
+        if(head==null || head.next==null){
+            return null;
+        }
+        DLL tail=head;
+        while(tail.next!=null){
+            tail=tail.next;
+        }
+        DLL newTail=tail.prev;
+        newTail.next=null;
+        tail.prev=null;
+
+        return head;
+    }
 
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5};
@@ -65,8 +79,14 @@ public class deleteNodeDLL {
 
         DLL head2= deleteFirstNode(head);
         display(head2);
+        System.out.println();
+
+        DLL head3= deleteTailNode(head2);
+        display(head3);
 
     }
+
+
 }
 
 
