@@ -71,7 +71,7 @@ public class deleteNodeDLL {
     }
 
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5};
+        int[] arr = {1, 2, 3, 4, 5,6,7,8,9};
 
         DLL head = convertArrayToDLL(arr);
         display(head);
@@ -83,6 +83,40 @@ public class deleteNodeDLL {
 
         DLL head3= deleteTailNode(head2);
         display(head3);
+        System.out.println();
+
+        DLL head4= deleteKthNode(head3,1);
+        display(head4);
+
+    }
+
+    private static DLL deleteKthNode(DLL head,int k) {
+        if(head==null){
+            return null;
+        }
+        int count=0;
+        DLL kNode=head;
+        while(kNode!=null){
+            count++;
+            if(count==k) break;
+            kNode=kNode.next;
+        }
+        DLL prev=kNode.prev;
+        DLL front=kNode.next;
+
+        if(prev==null && front==null){
+            return null;
+        }
+        else if(prev==null){
+            return deleteFirstNode(head);
+        }
+        else if(front==null){
+            return deleteTailNode(head);
+        }
+        prev.next=front;
+        front.prev=prev;
+
+        return head;
 
     }
 
