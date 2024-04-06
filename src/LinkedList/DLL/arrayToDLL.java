@@ -1,4 +1,4 @@
-package LinkedList;
+package LinkedList.DLL;
 
 public class arrayToDLL {
     static class DLL{
