@@ -80,8 +80,8 @@ public class reverseKthLL {
                         previousNode.next = kthNode;
                     }
                 }
-                previousNode = temp;
-                temp = nextNode;
+            previousNode = temp;
+            temp = nextNode;
             }
             return head;
         }
